@@ -2,7 +2,6 @@
 import 'core-js/shim';
 import 'isomorphic-fetch';
 import 'classlist-polyfill';
-import 'vendor/polyfills';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,7 +10,7 @@ import { browserHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import store from 'store';
+import store from './redux/configureStore';
 import '../styles/main.scss';
 
 function renderApp(RootComponent) {
@@ -29,7 +28,6 @@ function renderApp(RootComponent) {
 }
 
 renderApp(Root);
-
 /* istanbul ignore next  */
 if (module.hot) {
   module.hot.accept(

@@ -1,32 +1,49 @@
-// *** Vendor
-@import '~sass-mediaqueries/media-queries';
+body, html {
+  font-size: 62.5%;
+}
 
-// *** Base
-@import 'base/variables';
-@import 'base/icons';
-@import 'base/typography';
+.flex--center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-// *** Utilities
-@import 'utilities/functions';
-@import 'utilities/mixins';
-@import 'utilities/grid';
+html, body {
+  background-color: #dddddd;
+}
 
-// *** Vendor
-@import 'vendor/bootstrap';
-@import 'vendor/bootstrap-theme';
+.main-button {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #68AEF0;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: lighter;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-// *** Layout
-@import 'layout/global';
-@import 'layout/app';
+.child-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  color: #8898A5;
+}
 
-// *** Components
-@import 'components/footer';
-@import 'components/header';
-@import 'components/loader';
-@import 'components/logo';
-@import 'components/system-notifications';
+.sexy-item {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
 
-// *** Containers
-@import 'containers/home';
-@import 'containers/logged';
-@import 'containers/not-found';
+.sexy-item__img {
+  max-height: 100%;
+  max-width: 100%;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import createRoutes from 'routes';
+import routes from 'routes';
 
 /* istanbul ignore next */
 const Root = ({ store, history }) => (
   <Provider store={store}>
-    <Router history={history} routes={createRoutes()} />
+    <Router history={history} routes={routes} />
   </Provider>
 );
 

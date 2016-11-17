@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const date = new Date();
-const Footer = () => (
-  <footer className="app__footer">
-    <div className="app__container">
-      <div>
-        <i className="i-creative-commons" />
-        <span>{`${date.getFullYear()} RRS-B`}</span>
+const Footer = (props) => {
+  return (
+    <footer className="hf hf--footer">
+      <div className="hf__inner">
+        Footer
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;

@@ -49,7 +49,7 @@ var config = {
           };
         }
       }
-    }),
+    })
   ],
   module: {
     rules: [

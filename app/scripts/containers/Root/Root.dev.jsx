@@ -1,11 +1,8 @@
-import 'vendor/reactotronConfig';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
-import DevTools from 'components/DevTools';
-import createRoutes from 'routes';
+import routes from 'routes';
 
-const routes = createRoutes();
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -20,7 +17,6 @@ export default class Root extends React.Component {
       <Provider store={store}>
         <div>
           <Router history={history} routes={routes} />
-          <DevTools />
         </div>
       </Provider>
     );
