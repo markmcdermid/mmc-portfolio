@@ -17,6 +17,18 @@ class SexyBit extends Component {
     this.setState({ open: !this.state.open });
   }
 
+  getIconStyle = (index, time, negX, negY, dX, dY) => {
+    const a = (dX - this.X_OFFSET - 200) * time;
+    const b = (dY - this.Y_OFFSET - 150) * time;
+
+    const xCurve = 150 * negX * Math.sin((time * Math.PI));
+    const yCurve = 250 * negY * Math.sin(time * Math.PI);
+
+    const x = this.X_OFFSET + a + xCurve;
+    const y = this.Y_OFFSET + b + yCurve;
+    return { transform: `translate3d(${x}px, ${y}px, 0)` };
+  }
+
   render() {
     return (
       <div>
@@ -40,19 +52,9 @@ class SexyBit extends Component {
               time: spring(this.state.open ? 1 : 0, { stiffness: 100, damping: 15 }) // animate this value
             }}>
               { ({ time }) => {
-                const a = (i.dX - this.X_OFFSET) * time;
-                const b = (i.dY - this.Y_OFFSET)* time;
-
-                const xCurve = 150 * negX * Math.sin((time * Math.PI));
-                const yCurve = 250 * negY * Math.sin(time * Math.PI);
-
-                const x = this.X_OFFSET - 150 + a + xCurve;
-                const y = this.Y_OFFSET - 50 + b + yCurve;
-                const style = { transform: `translate3d(${x}px, ${y}px, 0)` };
-
+                const index = 1;
+                const style = this.getIconStyle(index, time, negX, negY, i.dX, i.dY);
                 return <SexyItem
-                  key={i.id}
-                  color={i.color}
                   style={style}
                   imgSrc={i.imgSrc}
                 />;
