@@ -12,7 +12,6 @@ const M_Y = 450;
 const RADIUS = 120;
 const SEPARATION_ANGLE = 40;
 
-//
 const FAN_ANGLE = (CHILD_ICONS - 1) * SEPARATION_ANGLE;
 const BASE_ANGLE = (180 - FAN_ANGLE) / 2;
 
