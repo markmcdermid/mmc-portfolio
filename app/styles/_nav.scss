@@ -1,0 +1,22 @@
+.nav {
+  margin-left: auto;
+}
+
+.nav__ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__li {
+  padding: 0 2rem;
+}
+
+.nav__a {
+  color: $white;
+  text-decoration: none;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}

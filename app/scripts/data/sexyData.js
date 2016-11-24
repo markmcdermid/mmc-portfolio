@@ -1,27 +1,120 @@
-var icons = ['angular.png', 'aws.png', 'babel.png', 'bem.svg', 'bootstrap.png', 'css3.jpg', 'foundation.jpg', 'gulp.png', 'gradle.png', 'grunt.png', 'html5.png', 'java.png', 'jquery.png', 'js.png', 'lodash.png', 'mocha.svg', 'mongodb.png', 'mysql.png', 'nodejs.png', 'npm.png', 'php.svg', 'react.png', 'sass.png', 'webpack.png'];
+var skills = [
+  {
+    icon: 'angular.png',
+    name: 'Angular'
+  },
+  {
+    icon: 'aws.png',
+    name: 'AWS',
+  },
+  {
+    icon: 'babel.png',
+    name: 'ES6 & Babel'
+  },
+  {
+    icon: 'bash.png',
+    name: 'Bash'
+  },
+  {
+    icon: 'bem.svg',
+    name: 'BEM'
+  },
+  {
+    icon: 'bootstrap.png',
+    name: 'Bootstrap'
+  },
+  {
+    icon: 'css3.jpg',
+    name: 'CSS 3'
+  },
+  {
+    icon: 'express.png',
+    name: 'Express'
+  },
+  {
+    icon: 'foundation.png',
+    name: 'Foundation 4'
+  },
+  {
+    icon: 'gulp.png',
+    name: 'Gulp',
+  },
+  {
+    icon: 'grunt.png',
+    name: 'Grunt',
+  },
+  {
+    icon: 'html5.png',
+    name: 'HTML5',
+  },
+  {
+    icon: 'java.png',
+    name: 'Java',
+  },
+  {
+    icon: 'jquery.png',
+    name: 'Jquery',
+  },
+  {
+    icon: 'js.png',
+    name: 'Js',
+  },
+  {
+    icon: 'lodash.png',
+    name: 'Lodash',
+  },
+  {
+    icon: 'mocha.svg',
+    name: 'Mocha',
+  },
+  {
+    icon: 'mongodb.png',
+    name: 'Mongodb',
+  },
+  {
+    icon: 'mysql.png',
+    name: 'Mysql',
+  },
+  {
+    icon: 'nodejs.png',
+    name: 'Nodejs',
+  },
+  {
+    icon: 'npm.png',
+    name: 'NPM',
+  },
+  {
+    icon: 'php.svg',
+    name: 'PHP',
+  },
+  {
+    icon: 'react.png',
+    name: 'React',
+  },
+  {
+    icon: 'redux.png',
+    name: 'Redux',
+  },
+  {
+    icon: 'sass.png',
+    name: 'Sass',
+  }
+]
 
-const GRID_SIZE = Math.ceil(Math.sqrt(icons.length));
+import config from 'config';
+
+const GRID_SIZE = Math.ceil(Math.sqrt(skills.length));
 const DEG_TO_RAD = Math.PI / 180;
-
-function getAdjustedGridDelta(col, row) {
-  const dX = window.innerWidth / GRID_SIZE * col;
-  const dY = window.innerHeight / GRID_SIZE * row;
-  return { dX, dY };
-}
 
 const toRadians = (deg) => deg * DEG_TO_RAD;
 
 function computeCircleDelta(i) {
-  const RADIUS = 350;
-  const SEPARATION_ANGLE = 360 / icons.length;
+  const RADIUS = 320;
+  const SEPARATION_ANGLE = 360 / skills.length;
   const angle = i * SEPARATION_ANGLE;
   const dX = RADIUS * Math.cos(toRadians(angle)) + 50;
   const dY = RADIUS * Math.sin(toRadians(angle)) + 50;
-
-  return {
-    dX,
-    dY
-  }
+  return { dX, dY };
 }
 
 function computeGridDelta(i) {
@@ -29,17 +122,17 @@ function computeGridDelta(i) {
   const mod = num % GRID_SIZE;
   const col = mod === 0 ? GRID_SIZE : mod;
   const row = Math.ceil(num / GRID_SIZE);
-  return getAdjustedGridDelta(col, row);
+  const dX = (window.innerWidth / GRID_SIZE * col) - config.CENTRE_X - (window.innerWidth / GRID_SIZE / 2);
+  const dY = (window.screen.availHeight / GRID_SIZE * row) - config.CENTRE_Y - (window.innerHeight / GRID_SIZE / 2);
+  return { dX, dY };
 }
 
 function getDeltas(type) {
   const compute = type === 'grid' ? computeGridDelta : computeCircleDelta;
-  return icons.map((i, index) => compute(index));
+  return skills.map((i, index) => compute(index));
 }
 
 const circleDeltas = getDeltas('circle');
-console.log(circleDeltas);
-
 const gridDeltas = getDeltas('grid');
 
 function getRandomDelta() {
@@ -47,15 +140,13 @@ function getRandomDelta() {
   return gridDeltas.splice(random, 1)[0];
 }
 
-const items = icons.map((icon, index) => {
+const items = skills.map(({ icon, name }, index) => {
   return {
-    id: icon,
+    name,
     imgSrc: `/media/images/skills/${icon}`,
-    ...getRandomDelta(),
+    grid: gridDeltas[index],
     circle: circleDeltas[index]
   };
 });
-
-console.log(items);
 
 export default items;

@@ -1,32 +1,12 @@
+const DEG_TO_RAD =  Math.PI / 180;
+const ICON_SIZE = 100;
+const CENTRE_X = window.innerWidth / 2 - (ICON_SIZE / 2);
+const CENTRE_Y = window.screen.availHeight / 2 - ( ICON_SIZE / 2)
+
 export default {
-  DEG_TO_RAD: Math.PI / 180,
-  CENTRE_X: window.innerWidth / 2 - 100,
-  CENTRE_Y: window.innerHeight / 2 - 100,
-  icons: [
-    'angular.png',
-    'aws.png',
-    'babel.png',
-    'bem.svg',
-    'bootstrap.png',
-    'css3.jpg',
-    'foundation.jpg',
-    'gulp.png',
-    'gradle.png',
-    'grunt.png',
-    'html5.png',
-    'java.png',
-    'jquery.png',
-    'js.png',
-    'lodash.png',
-    'mocha.svg',
-    'mongodb.png',
-    'mysql.png',
-    'nodejs.png',
-    'npm.png',
-    'php.svg',
-    'react.png',
-    'sass.png',
-    'webpack.png'
-  ]
+  DEG_TO_RAD,
+  ICON_SIZE,
+  CENTRE_X,
+  CENTRE_Y
 };
 

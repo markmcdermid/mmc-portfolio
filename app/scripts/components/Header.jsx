@@ -1,10 +1,13 @@
 import React from 'react';
+import Nav from 'components/Nav';
 
 const Header = () => (
-  <header className="hf hf--header">
-    <div className="hf__inner">
-      <h1 className="h1 h--no-margin">mmc asdf a</h1>
-    </div>
+  <header className="header">
+    <a className="logo">
+      <span>mmcd</span>
+      <small>.io</small>
+    </a>
+    <Nav></Nav>
   </header>
 );
 

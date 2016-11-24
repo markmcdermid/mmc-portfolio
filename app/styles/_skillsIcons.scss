@@ -1,0 +1,68 @@
+
+
+.main-button {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #68AEF0;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: lighter;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.child-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  color: #8898A5;
+}
+
+.flying-icon {
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.flying-icon__img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.flying-icon__tooltip {
+  background: $monzaLight;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40rem;
+  transform: translate(0, 100%);
+  padding: 3rem;
+  box-shadow:
+    transparentize($mineShaft, 0.5) 0px 5px 5px,
+    transparentize(lighten($mineShaft, 20%), 0.8) 0 -1px 5px;
+  border-radius: 2px;
+
+  &::before {
+    content: '▼';
+    color: $monzaLight;
+    bottom: .1rem;
+    left: 50%;
+    text-align: center;
+    line-height: 1;
+    position: absolute;
+    pointer-events: none;
+    text-shadow: transparentize($mineShaft, 0.5) 0px 7px 5px;
+    transform: scale(2.5, 1) translateY(100%);
+    transform-origin: bottom;
+
+  }
+}

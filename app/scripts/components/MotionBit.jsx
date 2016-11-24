@@ -3,11 +3,11 @@ import {Motion, spring} from 'react-motion';
 
 const Demo = React.createClass({
   getInitialState() {
-    return {open: false};
+    return {isOpen: false};
   },
 
   handleMouseDown() {
-    this.setState({open: !this.state.open});
+    this.setState({isOpen: !this.state.isOpen});
   },
 
   handleTouchStart(e) {
@@ -24,7 +24,7 @@ const Demo = React.createClass({
           Toggle
         </button>
 
-        <Motion style={{x: spring(this.state.open ? 400 : 0)}}>
+        <Motion style={{x: spring(this.state.isOpen ? 400 : 0)}}>
           {({x}) =>
             // children is a callback which should accept the current value of
             // `style`

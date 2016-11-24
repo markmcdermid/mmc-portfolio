@@ -1,12 +1,14 @@
 import React from 'react';
-import SexyBit from 'components/SexyBit';
-import SexyMenu from '../components/SexyMenu';
+import IconContainer from 'components/IconContainer';
+import Hero from 'components/Hero';
+import Header from 'components/header';
 
 export class Home extends React.Component {
   render() {
     return (
       <div key="Home" className="app__home app__route">
-        <SexyBit></SexyBit>
+        <Header></Header>
+        <Hero></Hero>
         {/*<SexyMenu></SexyMenu>*/}
       </div>
     );

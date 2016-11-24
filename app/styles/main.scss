@@ -1,5 +1,28 @@
+@import 'variables';
+@import 'reset';
+@import 'common';
+@import 'button';
+@import 'headings';
+@import 'header';
+@import 'hero';
+@import 'nav';
+@import 'skillsIcons';
+
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   font-size: 62.5%;
+  background: $alto;
+  color: $white;
+  font-family: 'Avenir', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#react {
+  font-size: 1.6rem;
 }
 
 .flex--center-all {
@@ -8,42 +31,13 @@ body, html {
   align-items: center;
 }
 
-html, body {
-  background-color: #dddddd;
-}
-
-.main-button {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 100%;
-  background-color: #68AEF0;
-  cursor: pointer;
-  color: #ffffff;
-  font-weight: lighter;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.child-button {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
-  color: #8898A5;
-}
-
-.sexy-item {
-  width: 10rem;
-  height: 10rem;
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-}
-
-.sexy-item__img {
-  max-height: 100%;
-  max-width: 100%;
+.logo {
+  font-size: 4.4rem;
+  small {
+    font-weight: normal;
+    line-height: 1;
+    text-transform: none;
+    color: $monza;
+    font-size: 2.8rem;
+  }
 }
