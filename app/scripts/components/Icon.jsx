@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import Tooltip from 'components/Tooltip';
 
-class SexyItem extends Component {
+class Icon extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('construct')
+  }
+
   static defaultProps = {
     isActive: true,
     className: '',
@@ -15,6 +21,15 @@ class SexyItem extends Component {
     position: 'relative'
   }
 
+
+  getStyle(x, y, zInd) {
+    return {
+      transform: `translate3d(${x}px, ${y}px, 0)`,
+      zIndex: zInd,
+    };
+  }
+
+
   handleMouseEnter = () => {
     this.setState({ hovered: true })
   }
@@ -24,18 +39,23 @@ class SexyItem extends Component {
   }
 
   render() {
+    const { x, y, zInd} = this.props.coords;
+    const style = this.getStyle(x, y, zInd);
     return (
       <div
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         className="flying-icon"
-        style={this.props.style}
+        style={style}
       >
-        <img className="flying-icon__img" src={this.props.imgSrc} alt="" />
-        {this.state.hovered && <Tooltip name={this.props.item.name} />}
+        <img
+          className="flying-icon__img"
+          src={this.props.item.imgSrc} alt=""
+        />
+        {this.state.hovered && <Tooltip x={x} y={y} name={this.props.item.name} />}
       </div>
     );
   }
 }
 
-export default SexyItem;
+export default Icon;

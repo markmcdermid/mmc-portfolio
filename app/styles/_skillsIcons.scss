@@ -39,10 +39,8 @@
 }
 
 .flying-icon__tooltip {
-  background: $monzaLight;
+  background: $monzaDark;
   position: absolute;
-  bottom: 0;
-  left: 50%;
   width: 40rem;
   transform: translate(0, 100%);
   padding: 3rem;
@@ -51,18 +49,37 @@
     transparentize(lighten($mineShaft, 20%), 0.8) 0 -1px 5px;
   border-radius: 2px;
 
+
   &::before {
-    content: '▼';
-    color: $monzaLight;
-    bottom: .1rem;
-    left: 50%;
+    color: $monzaDark;
     text-align: center;
     line-height: 1;
     position: absolute;
     pointer-events: none;
-    text-shadow: transparentize($mineShaft, 0.5) 0px 7px 5px;
-    transform: scale(2.5, 1) translateY(100%);
-    transform-origin: bottom;
+    //text-shadow: transparentize($mineShaft, 0.5) 0px 7px 5px;
+  }
 
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    &::before {
+      bottom: .1rem;
+      content: '▼';
+      left: 50%;
+      transform: scale(2.5, 1) translateY(100%);
+      transform-origin: bottom;
+    }
+  }
+
+  &--top {
+    top: 0;
+    transform: translate(0, -100%);
+
+    &::before {
+      content: '▲';
+      transform: scale(2.5, 1) translateY(-100%);
+      transform-origin: top;
+    }
   }
 }
+
