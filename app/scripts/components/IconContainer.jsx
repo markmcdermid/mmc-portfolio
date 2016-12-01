@@ -4,8 +4,20 @@ import Icon from 'components/Icon';
 import config from 'config';
 import { StaggeredMotion, spring } from 'react-motion';
 import { constant, range } from 'lodash';
+import $ from 'jquery';
 
 class IconContainer extends Component {
+  componentDidMount() {
+    $(window).on('scroll', () => {
+      var st = $(window).scrollTop();
+      var a = $(this.node).offset().top;
+      if (st > a) {
+        this.setState({ isOpen: true });
+      } else {
+        this.setState({ isOpen: false });
+      }
+    });
+  }
   items = items;
   state = { isOpen: false, speed: 50, isGrid: true };
 
@@ -14,7 +26,6 @@ class IconContainer extends Component {
   toggleGrid = () => this.setState({ isGrid: !this.state.isGrid })
 
   defaultStyles = this.items.map(i => ({ completion: 0 }));
-
 
   getCoords = (index, time) => {
     const i = this.items[index];
@@ -44,12 +55,29 @@ class IconContainer extends Component {
     return { completion: shouldAnimate ? animate : thisCompletion };
   })
 
-  render() {
-    console.log('parent render');
+  handleInterpolated = (interpolatedStyles) => {
     return (
-      <div ref={node => this.node = node}>
-        <button className="btn" onMouseDown={this.toggleOpen}>Toggle On/Off</button>
-        <button className="btn" onMouseDown={this.toggleGrid}>Toggle Grid</button>
+      <section className="icon-container" style={{ width: '100%', height: '100%' }}>
+        {interpolatedStyles.map(({ completion }, index) => {
+          return <Icon
+            item={this.items[index]}
+            coords={this.getCoords(index, completion)}
+            index={index}
+            key={index}
+            completion={completion}
+          />;
+        })}
+      </section>
+    );
+  };
+
+  setRef = node => this.node = node;
+
+  render() {
+    return (
+      <div ref={this.setRef}>
+        <button className="btn" onClick={this.toggleOpen}>Toggle On/Off</button>
+        <button className="btn" onClick={this.toggleGrid}>Toggle Grid</button>
 
         <input type="range"
                min="1"
@@ -60,19 +88,7 @@ class IconContainer extends Component {
         />
 
         <StaggeredMotion defaultStyles={this.defaultStyles} styles={this.getStylesArray}>
-          {(interpolatedStyles) => {
-            return <div style={{ width: '100%', height: '100%' }}>
-              {interpolatedStyles.map(({ completion }, index) => {
-                return <Icon
-                  item={this.items[index]}
-                  coords={this.getCoords(index, completion)}
-                  index={index}
-                  key={index}
-                  completion={completion}
-                />;
-              })}
-            </div>
-          }}
+          {this.handleInterpolated}
         </StaggeredMotion>
       </div>
     );

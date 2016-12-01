@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import Tooltip from 'components/Tooltip';
 
 class Icon extends Component {
-
-  constructor(props) {
-    super(props);
-    console.log('construct')
-  }
-
   static defaultProps = {
     isActive: true,
     className: '',
@@ -17,18 +11,12 @@ class Icon extends Component {
 
   state = { hovered: false }
 
-  style = {
-    position: 'relative'
-  }
-
-
   getStyle(x, y, zInd) {
     return {
       transform: `translate3d(${x}px, ${y}px, 0)`,
       zIndex: zInd,
     };
   }
-
 
   handleMouseEnter = () => {
     this.setState({ hovered: true })
@@ -52,7 +40,7 @@ class Icon extends Component {
           className="flying-icon__img"
           src={this.props.item.imgSrc} alt=""
         />
-        {this.state.hovered && <Tooltip x={x} y={y} name={this.props.item.name} />}
+        {this.state.hovered && this.props.completion === 1 && <Tooltip x={x} y={y} name={this.props.item.name} />}
       </div>
     );
   }

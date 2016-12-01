@@ -19,6 +19,7 @@
     "ease-component": "^1.0",
     "fbjs": "^0.8",
     "isomorphic-fetch": "^2.2",
+    "jquery": "^3.1.1",
     "lodash": "^4.17.0",
     "mobile-detect": "^1.3",
     "modernizr": "^3.3",

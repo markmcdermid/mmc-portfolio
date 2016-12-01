@@ -76,7 +76,7 @@ var skills = [
     name: 'Mysql',
   },
   {
-    icon: 'nodejs.png',
+    icon: 'node.svg',
     name: 'Nodejs',
   },
   {
@@ -109,9 +109,9 @@ const DEG_TO_RAD = Math.PI / 180;
 const toRadians = (deg) => deg * DEG_TO_RAD;
 
 function computeCircleDelta(i) {
-  const RADIUS = 320;
+  const RADIUS = 380;
   const SEPARATION_ANGLE = 360 / skills.length;
-  const angle = i * SEPARATION_ANGLE;
+  const angle = i * SEPARATION_ANGLE - 90;
   const dX = RADIUS * Math.cos(toRadians(angle)) + 50;
   const dY = RADIUS * Math.sin(toRadians(angle)) + 50;
   return { dX, dY };

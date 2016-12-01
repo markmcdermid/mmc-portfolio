@@ -42,7 +42,7 @@ class SexyMenu extends React.Component {
     };
   }
 
-    childButtonStyle(index, completion) {
+  childButtonStyle(index, completion) {
     const deg = 360 * completion;
     const { dX, dY } = deltaPosition(index, completion);
     return {
@@ -78,20 +78,22 @@ class SexyMenu extends React.Component {
             // Interpolated styles updates on every change
             // [array of percentages here]
             const leaderPercent = interpolatedStyles[0].completion;
-            return <div>
-              {interpolatedStyles.map(({ completion }, index) => {
-                const style = this.childButtonStyle(index, completion);
-                return (
-                  <div className="child-button flex--center-all" style={style} key={index}>
-                    :)
-                  </div>
-                );
-              })}
-              <div className="main-button flex--center-all" style={this.mainButtonStyle(leaderPercent)}
-                   onClick={this.toggleMenu}>
-                X
+            return (
+              <div>
+                {interpolatedStyles.map(({ completion }, index) => {
+                  const style = this.childButtonStyle(index, completion);
+                  return (
+                    <div className="child-button flex--center-all" style={style} key={index}>
+                      :)
+                    </div>
+                  );
+                })}
+                <div className="main-button flex--center-all" style={this.mainButtonStyle(leaderPercent)}
+                     onClick={this.toggleMenu}>
+                  X
+                </div>
               </div>
-            </div>
+            );
           }}
         </StaggeredMotion>
       </div>
