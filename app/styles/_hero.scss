@@ -1,5 +1,10 @@
 .hero {
   background-color: $mineShaftLight;
+}
+
+.full-height-flex {
+  display: flex;
   min-height: 100vh;
   position: relative;
+  overflow: auto;
 }

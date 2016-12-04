@@ -1,18 +1,16 @@
-import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import { browserHistory } from 'react-router';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
-
-const reducer = combineReducers({ ...rootReducer, routing: routerReducer });
 
 /* istanbul ignore next */
 const newStore = (initialState = {}) => {
   const createStoreWithMiddleware = compose(
-    applyMiddleware(thunk, routerMiddleware(browserHistory)),
+    applyMiddleware(thunk, routerMiddleware(browserHistory))
   )(createStore);
 
-  const store = createStoreWithMiddleware(reducer, initialState);
+  const store = createStoreWithMiddleware(rootReducer, initialState);
   if (module.hot) {
     module.hot.accept('./rootReducer', () => {
       store.replaceReducer(require('./rootReducer').default);

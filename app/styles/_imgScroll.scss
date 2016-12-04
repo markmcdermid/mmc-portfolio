@@ -1,0 +1,19 @@
+.img-scroll {
+  height: 100vh;
+}
+
+.img-scroll__img {
+  background-size: cover;
+  height: 100%;
+  width: 50%;
+}
+
+.img-scroll__details {
+  width: 50%;
+  background: $monza;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}

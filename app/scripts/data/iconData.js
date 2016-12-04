@@ -33,7 +33,7 @@ var skills = [
   },
   {
     icon: 'foundation.png',
-    name: 'Foundation 4'
+    name: 'Foundation 6'
   },
   {
     icon: 'gulp.png',
@@ -53,7 +53,7 @@ var skills = [
   },
   {
     icon: 'jquery.png',
-    name: 'Jquery',
+    name: 'jQuery',
   },
   {
     icon: 'js.png',
@@ -109,7 +109,8 @@ const DEG_TO_RAD = Math.PI / 180;
 const toRadians = (deg) => deg * DEG_TO_RAD;
 
 function computeCircleDelta(i) {
-  const RADIUS = 380;
+  const smaller = window.innerHeight < window.innerWidth ? window.innerHeight : window.innerWidth;
+  const RADIUS = (smaller - 100) / 2;
   const SEPARATION_ANGLE = 360 / skills.length;
   const angle = i * SEPARATION_ANGLE - 90;
   const dX = RADIUS * Math.cos(toRadians(angle)) + 50;
@@ -122,8 +123,10 @@ function computeGridDelta(i) {
   const mod = num % GRID_SIZE;
   const col = mod === 0 ? GRID_SIZE : mod;
   const row = Math.ceil(num / GRID_SIZE);
-  const dX = (window.innerWidth / GRID_SIZE * col) - config.CENTRE_X - (window.innerWidth / GRID_SIZE / 2);
-  const dY = (window.screen.availHeight / GRID_SIZE * row) - config.CENTRE_Y - (window.innerHeight / GRID_SIZE / 2);
+  const w = window.innerWidth / 2;
+  const h = window.innerHeight - 50;
+  const dX = (w / GRID_SIZE * col) - config.CENTRE_X - (w / GRID_SIZE / 2);
+  const dY = (h / GRID_SIZE * row) - config.CENTRE_Y - (h / GRID_SIZE / 2);
   return { dX, dY };
 }
 

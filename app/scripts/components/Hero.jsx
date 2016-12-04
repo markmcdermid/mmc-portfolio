@@ -1,11 +1,10 @@
 import React from 'react';
-import IconContainer from 'components/IconContainer';
 
 export class Hero extends React.Component {
   render() {
     return (
-      <div className="hero" style={{ height: window.screen.availHeight }}>
-        <IconContainer></IconContainer>
+      <div style={this.props.style} className="full-height-flex">
+        {this.props.children}
       </div>
     );
   }
