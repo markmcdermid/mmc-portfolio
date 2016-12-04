@@ -9,11 +9,11 @@ import { actions as iconActions } from 'modules/icons';
 
 class IconContainer extends Component {
   componentDidMount() {
+    const { toggleOpen} = this.props;
     $(window).on('scroll', () => {
-      const { toggleOpen: tgl } = this.props;
       var st = $(window).scrollTop();
-      var a = $(this.node).offset().top - 100;
-      return st > a ? tgl(true) : tgl(false);
+      var a = $(this.node).offset().top;
+      st > a ? toggleOpen(true) : toggleOpen(false);
     });
   }
 

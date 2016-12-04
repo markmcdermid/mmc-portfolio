@@ -5,18 +5,48 @@
 .nav__ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
 }
 
 .nav__li {
   padding: 0 2rem;
+  position: relative;
+
+  &:hover {
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+
+    .nav__text {
+      font-size: 0;
+    }
+
+    .nav__icon {
+      max-height: 4.5rem;
+    }
+  }
+}
+
+.nav__text {
+  font-size: inherit;
+  position: absolute;
+  transition: font-size 0.2s ease-in-out;
+}
+
+.nav__icon {
+  font-size: 4.5rem;
+  max-height: 0;
+  transition: max-height 0.2s ease-in-out;
 }
 
 .nav__a {
   color: $white;
   text-decoration: none;
-
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 3rem;
 }

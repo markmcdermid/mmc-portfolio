@@ -4,7 +4,23 @@
 
 .full-height-flex {
   display: flex;
-  min-height: 100vh;
+  flex-direction: row;
+  min-height: 120vh;
   position: relative;
-  overflow: auto;
+
+  & > div {
+    padding-bottom: 10rem;
+    padding-top: 10rem;
+  }
+}
+
+.hero__video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
 }

@@ -1,0 +1,29 @@
+.clip-text {
+  background: url(http://lorempixel.com/480/200/abstract/7);
+  font-size: 12rem;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  margin: .25em;
+  padding: .5em .75em;
+  text-align: center;
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &::before {
+
+  }
+
+  &::after {
+    position: absolute;
+    top: .2rem;
+    bottom: .2rem;
+    left: .2rem;
+    right: .2rem;
+    content: '';
+    background: red;
+    z-index: -1;
+  }
+}

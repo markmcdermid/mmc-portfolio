@@ -23,13 +23,9 @@
 }
 
 .icon-container {
-  background-image: url("https://drscdn.500px.org/photo/117544915/m%3D2048/c0a9e0c80f713f6e60ff1007949e4305");
-  background-position: 50% 50%;
-  background-size: cover;
-  min-height: 100vh;
-  float: left;
-  padding-top: 50vh;
-  width: 50%;
+  background: $mineShaftLight;
+  flex: 1;
+  padding-top: 10vh;
 }
 
 .icon-container__inner {
@@ -37,15 +33,9 @@
 }
 
 .icon-details {
-  float: right;
-  height: 200vh;
-  width: 50%;
-}
-.icon-details__main {
   background: $monzaLight;
-  height: 100vh;
+  flex: 1;
   padding: 2rem 1rem;
-
 }
 
 .icon-info {
